@@ -70,10 +70,13 @@ In this notebook, I perform customer segmentation using 2 different methods:
 #### `3-modeling.ipynb`
 In this notebook, I build a binary classifier that predicts whether a user will respond to an offer. This classifier will help decide whether or not to send users a particular offer. The input of this classifier includes an offer’s metadata and a user’s demographic and behavioral features. It will produce a binary output that predicts if the user will complete the offer.
 
-I train 6 different models - logistic regression, k-nearest neighbors (KNN), support vector machine (SVM), decision tree, random forest, and light gradient boosting machine (LightGBM) - and evaluate them based on prediction accuracy and the F1 score. The model with the best metrics was selected as the final classifier. The hyperparameters of LightGBM were optimized using Optuna and the other 5 models were tuned with grid search.
+I train 6 different models - logistic regression, k-nearest neighbors (KNN), support vector machine (SVM), decision tree, random forest, and light gradient boosting machine (LightGBM). The model with the best metrics was selected as the final classifier. The hyperparameters of LightGBM were optimized using Optuna and the other 5 models were tuned with grid search.
 
+The models will be evaluated based on their prediction accuracy and F1 score (the harmonic mean of precision and recall). This way, we can get a closer look at the predictions and ensure that there isn't a major imbalance in the predicted classes. Ideally, we'd like to see an equal precision and recall, which would yield an F1 score that is also the same. This means that the number of false positives and false negatives would have to be fairly close.
 
-## Results
+However, in this case, we are willing to accept a recall that is greater than the precision (but not the other way around), as long as it does not negatively affect the accuracy and F1 score. In other words, if there was a minor class imbalance, we would prefer that the classifier predicts with more false positives than false negatives. This is because it would be better to send out offers to customers that wouldn't respond to them, than to NOT send out offers to customers that would respond.
+
+## Conclusion
 #### As the final classifier, the random forest model made predictions on the validation set with an F1 score of 0.74 and on the test set with an F1 score of 0.75.
 
 #### The analysis discovered several key insights about the data:
