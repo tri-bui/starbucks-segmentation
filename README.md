@@ -3,7 +3,7 @@
 1. Segment customers based on demographics and behavior on the mobile app
 2. Build a binary classifier that predicts whether a user will respond to a certain offer
 
-#### Read more about it in my [article](https://medium.com/@buitri/improving-starbucks-ad-targeting-91833dff3e94).
+#### Read more about it in my [article](https://medium.com/analytics-vidhya/improving-starbucks-ad-targeting-91833dff3e94).
 
 
 ## Data
